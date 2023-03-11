@@ -1,0 +1,46 @@
+<!-- coded by https://shreateh.net/links -->
+<html>
+<head>
+    <title>shreateh.net/links</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+ 
+    </style>    
+</head>
+
+<body>
+<input type="file" id="fileinput" />
+<button id="convert">convert</button>
+<br/>
+<div id="file-content"></div>
+ 
+<script type="text/javascript">
+document.querySelector("#convert").addEventListener("click",function(){
+file =document.querySelector('input[type=file]').files[0];
+ var reader  = new FileReader();
+ reader.addEventListener("load", function () {
+document.querySelector("#file-content").innerHTML="<img src="+reader.result+" style='width:50%'></img>";
+prompt('Copy',reader.result);
+  }, false);
+if (file) {
+    reader.readAsDataURL(file);
+   //  reader.readAsText(file);
+  }
+});
+
+
+
+</script>
+  
+</div>
+</body>
+</html>
