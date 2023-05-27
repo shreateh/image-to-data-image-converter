@@ -1,3 +1,19 @@
+
+
+var request = new XMLHttpRequest();
+request.open('GET', MY_URL, true);
+request.responseType = 'blob';
+request.onload = function() {
+    var reader = new FileReader();
+    reader.readAsDataURL(request.response);
+    reader.onload =  function(e){
+        console.log('DataURL:', e.target.result);
+    };
+};
+request.send();
+
+
+
 <!-- coded by https://shreateh.net/links -->
 <html>
 <head>
